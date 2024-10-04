@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo
+    container_name: mongo_c
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+  back:
+    build: ./back
+    container_name: back_c
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mongo
+    volumes:
+      - ./back:/app
+    environment: 
+      MONGO_URL: 'mongodb+srv://spuppala25:cs3744@cs3744.ofpidzq.mongodb.net/CS3744'
+
+  src:
+    build: .
+    container_name: src_c
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - back
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+volumes:
+  mongo-data:

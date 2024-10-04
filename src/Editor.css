@@ -1,0 +1,17 @@
+/*
+ * Project 2
+ * Editor component CSS source code
+ *
+ * Author: Sai Puppala
+ * Version: 1.0
+ */
+
+#newElement {
+    align-content: center;
+}
+
+.centerDiv {
+    align-content: center;
+    text-align: center;
+    padding-bottom: 10px;
+}

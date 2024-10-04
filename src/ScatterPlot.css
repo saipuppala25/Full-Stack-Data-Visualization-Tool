@@ -1,0 +1,27 @@
+/*
+ * Project 2
+ * ScatterPlot component CSS source code
+ *
+ * Author: Sai Puppala
+ * Version: 1.0
+ */
+
+ svg {
+    font-family: Arial;
+    text-anchor: middle;
+}
+
+#title {
+    font-size: 3pt;
+    fill: black;
+}
+
+#labels, #values {
+    font-size: 1pt;
+    fill: grey;
+}
+
+#circles {
+    fill: dodgerblue;
+    stroke: none;
+}
