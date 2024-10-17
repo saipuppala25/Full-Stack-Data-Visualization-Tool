@@ -4,10 +4,13 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 In addition, it runs the MongoDB back-end database. In the backend folder, create a .env file, and 
-add a MONGODB_URI variable with your own MongoDB connection string.
+add a MONGODB_URI variable with your own MongoDB connection string. 
+
+The database is backed into an S3 bucket and is triggered when the user adds new data to any of the graphs. 
+
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
