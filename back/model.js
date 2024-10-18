@@ -12,7 +12,7 @@ const mongoose = require('mongoose');
 // Create schema
 const tableSchema = new mongoose.Schema({
     title: String,
-    data: Array
+    data: Array,
     /*records: {
         type: Array,
         items: {
@@ -25,6 +25,7 @@ const tableSchema = new mongoose.Schema({
         }
     },
     footer: String*/
+    createdAt: { type: Date, default: Date.now, index: true }
 });
 
 

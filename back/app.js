@@ -60,19 +60,30 @@ router.get('/find/:id', async (req, res) => {
 });
 
 // Route to update an item by ID
-router.post('/update/:id', async (req, res) => {
+// Route to update an item by ID
+router.put('/update/:id', async (req, res) => {
   const { myTitle, data } = req.body;
+
+  if (!mongoose.isValidObjectId(req.params.id)) {
+    return res.status(400).json({ error: 'Invalid ID format' });
+  }
+
   try {
-    const item = await tableSchema.findByIdAndUpdate(req.params.id, { title: myTitle, data: data }, { new: true });
+    const item = await tableSchema.findByIdAndUpdate(
+      req.params.id,
+      { title: myTitle, data: data },
+      { new: true } // This option returns the updated document
+    );
     if (!item) {
       return res.status(404).json({ error: 'Item not found' });
     }
-    res.json('Item updated!');
+    res.json(item); // Return the updated item
   } catch (error) {
     console.error("Error updating document:", error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 
 // Route to add a new item
 router.post('/add', async (req, res) => {
